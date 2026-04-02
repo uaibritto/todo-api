@@ -1,19 +1,10 @@
 import { TaskRepository } from '@/modules/task/task.repository'
-import type { CreateTaskDto } from '@/modules/task/task.types'
+import type { CreateTaskDto, UpdateTaskDto } from '@/modules/task/task.types'
 import { AppError } from '@/shared/errors/AppError'
-import { createId } from '@/shared/utils/generateId'
 
 export class TaskService {
     static async createTask({ title, done }: CreateTaskDto) {
-        const newTask = {
-            id: createId(),
-            title,
-            done,
-            createdAt: new Date(),
-            updatedAt: new Date()
-        }
-
-        const task = await TaskRepository.create(newTask)
+        const task = await TaskRepository.create({ title, done })
 
         if (!task) {
             throw new AppError('Failed to create task')
@@ -38,13 +29,23 @@ export class TaskService {
         return tasks
     }
 
-    static async removeTask(id: string) {
-        const task = await TaskRepository.findOne(id)
+    static async updateTask(id: string, update: UpdateTaskDto) {
+        const task = await TaskRepository.update(id, update)
 
         if (!task) {
             throw new AppError('Task not found')
         }
 
-        return TaskRepository.delete(id)
+        return task
+    }
+
+    static async removeTask(id: string) {
+        const deleted = await TaskRepository.delete(id)
+
+        if (!deleted) {
+            throw new AppError('Task not found')
+        }
+
+        return deleted
     }
 }

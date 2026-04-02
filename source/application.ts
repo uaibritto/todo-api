@@ -6,14 +6,14 @@ import { AppError } from '@/shared/errors/AppError'
 
 export const application = new Elysia()
     .use(cors({ methods: ['GET', 'POST', 'DELETE'], origin: '*' }))
-    .onError(({ error, code }) => {
+    .error({ AppError })
+    .onError(({ error, code, status }) => {
         switch (code) {
-            case 'VALIDATION':
-                return new AppError(error.message)
-            case 'NOT_FOUND':
-                return new AppError(error.message)
+            case 'AppError':
+                return status(418, error.message)
+
             default:
-                return new AppError('Something went wrong')
+                return { message: 'Something went wrong' }
         }
     })
     .use(taskController)
