@@ -1,0 +1,21 @@
+{
+    "name": "todo-api",
+    "version": "1.0.0",
+    "module": "src/index.js",
+    "scripts": {
+        "dev": "bun run --watch src/server.ts"
+    },
+    "dependencies": {
+        "elysia": "latest",
+        "zod": "^4.3.6"
+    },
+    "devDependencies": {
+        "@paralleldrive/cuid2": "^3.3.0",
+        "@types/bun": "latest",
+        "oxfmt": "^0.43.0",
+        "oxlint": "^1.58.0"
+    },
+    "peerDependencies": {
+        "typescript": "^6.0.2"
+    }
+}

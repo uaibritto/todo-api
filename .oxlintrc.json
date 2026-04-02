@@ -1,0 +1,12 @@
+{
+    "rules": {
+        "no-unused-vars": "warn",
+        "no-debugger": "error",
+        "no-var": "warn",
+        "eqeqeq": "warn",
+        "curly": "warn",
+        "no-console": "off",
+        "no-constant-condition": "warn",
+        "no-empty-file": "warn"
+    }
+}
