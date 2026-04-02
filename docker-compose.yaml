@@ -1,0 +1,12 @@
+name: todo-api
+
+services:
+    postgres:
+        image: bitnami/postgresql:latest
+        environment:
+            - POSTGRESQL_USERNAME=postgres
+            - POSTGRESQL_PASSWORD=postgres
+            - POSTGRESQL_DATABASE=todo
+        ports:
+            - 5432:5432
+        container_name: todo-api-postgres
