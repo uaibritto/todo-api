@@ -4,5 +4,5 @@ import { application } from '@/application'
 import { env } from '@/config/env'
 
 application
-    .onStart(() => console.log(styleText('bgBlue', ' Server started ')))
+    .onStart(() => console.log(styleText('bgMagenta', ' Flying 🪁 '), '\n'))
     .listen({ port: env.PORT, hostname: env.HOST })

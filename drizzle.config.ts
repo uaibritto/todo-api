@@ -8,7 +8,7 @@ import { env } from '@/config/env'
 export default defineConfig({
     dialect: 'postgresql',
     schema: path.join('source', 'infrastructure', 'database', 'schemas', '*'),
-    out: path.join('source', 'infrastructure', 'database', 'migrations'),
+    out: path.join('source', 'infrastructure', 'database', 'generated'),
 
     dbCredentials: { url: env.DATABASE_URL }
 })

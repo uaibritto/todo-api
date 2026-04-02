@@ -12,7 +12,5 @@ export const tasks = table('tasks', {
     createdAt: timestamp('created_at')
         .notNull()
         .default(sql`now()`),
-    updatedAt: timestamp('updated_at')
-        .notNull()
-        .default(sql`now()`)
+    updatedAt: timestamp('updated_at').notNull().defaultNow()
 })
