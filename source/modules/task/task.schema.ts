@@ -12,8 +12,5 @@ export const taskSchema = {
         title: z.string('title is required').min(1),
         done: z.boolean().default(false)
     }),
-    updateTaskDto: z.object({
-        title: z.optional(z.string()),
-        done: z.optional(z.boolean())
-    })
+    updateTaskDto: z.object({ done: z.boolean() })
 }
