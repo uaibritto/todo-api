@@ -3,11 +3,11 @@
     "version": "1.0.0",
     "module": "src/index.js",
     "scripts": {
+        "commit": "cz",
         "dev": "bun run --watch source/server.ts",
-        "lint": "oxlint --fix",
         "fmt": "oxfmt --write",
-        "prepare": "husky",
-        "commit": "cz"
+        "lint": "oxlint --fix",
+        "prepare": "husky"
     },
     "dependencies": {
         "@elysiajs/cors": "^1.4.1",
